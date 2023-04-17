@@ -2,6 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
+<meta property="head" content="H1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -140,9 +141,63 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Brython.html'>Next</a> >> Brython<br /><h1>About</h1>
-<p>cmsimde_site</p>
-<br /> <a href='Brython.html'>Next</a> >> Brython</div>
+    <div id="tipue_search_content">Brython << <a href='Brython.html'>Previous</a> <br /><h1>列出5次小考平均成績</h1>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">w5 = "https://gist.githubusercontent.com/mdecycu/07f0f0817115a68d55d6ca603c5ab393/raw/239f4eb84715978daead6ac1f231af7f190a2a5e/1aw5.txt"
+w6 = "https://gist.githubusercontent.com/mdecycu/07f0f0817115a68d55d6ca603c5ab393/raw/239f4eb84715978daead6ac1f231af7f190a2a5e/1aw6.txt"
+w6_2 = "https://gist.githubusercontent.com/mdecycu/07f0f0817115a68d55d6ca603c5ab393/raw/239f4eb84715978daead6ac1f231af7f190a2a5e/1aw6-2.txt"
+w8 = "https://gist.githubusercontent.com/mdecycu/07f0f0817115a68d55d6ca603c5ab393/raw/075c06b2baf1bb07665f1a98e9f88f7e81ebe1a4/1aw8.txt"
+w9 = "https://gist.githubusercontent.com/mdecycu/07f0f0817115a68d55d6ca603c5ab393/raw/239f4eb84715978daead6ac1f231af7f190a2a5e/1aw9.txt"
+
+data_w5 = open(w5).read().split("\n")
+data_w6 = open(w6).read().split("\n")
+data_w6_2 = open(w6_2).read().split("\n")
+data_w8 = open(w8).read().split("\n")
+data_w9 = open(w9).read().split("\n")
+
+data_w5 = data_w5[1:]
+data_w6 = data_w6[1:]
+data_w6_2 = data_w6_2[1:]
+data_w8 = data_w8[1:]
+data_w9 = data_w9[1:]
+
+score = []
+score_w5 = []
+score_w6 = []
+score_w6_2 = []
+score_w8 = []
+score_w9 = []
+stud = []
+
+for i, val in enumerate(data_w5):
+    stud.append(val.split(":")[0])
+    score_w5.append(val.split(":")[1])
+    if score_w5[i] == "缺考":
+        score_w5[i] = score_w5[i].replace("缺考", "0")
+
+for i, val in enumerate(data_w6):
+    score_w6.append(val.split(":")[1])
+    if score_w6[i] == "缺考":
+        score_w6[i] = score_w6[i].replace("缺考", "0")
+
+for i, val in enumerate(data_w6_2):
+    score_w6_2.append(val.split(":")[1])
+    if score_w6_2[i] == "缺考":
+        score_w6_2[i] = score_w6_2[i].replace("缺考", "0")
+
+for i, val in enumerate(data_w8):
+    score_w8.append(val.split(":")[1])
+    if score_w8[i] == "缺考":
+        score_w8[i] = score_w8[i].replace("缺考", "0")
+
+for i, val in enumerate(data_w9):
+    score_w9.append(val.split(":")[1])
+    if score_w9[i] == "缺考":
+        score_w9[i] = score_w9[i].replace("缺考", "0")
+
+for i in range(60):
+    score.append((int(score_w5[i])+int(score_w6[i])+int(score_w6_2[i])+int(score_w8[i])+int(score_w9[i]))/5)
+    print(stud[i], score[i])</pre>
+<p></p><br />Brython << <a href='Brython.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
