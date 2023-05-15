@@ -343,3 +343,23 @@ for i in range(60):
 <p><img alt="" height="984" src="/images/14.png" width="1914"/></p>
 <p></p>
 <h1>在老師那邊建立動態網站(使用ssh協議)</h1>
+<p>1.在網路狀態設定中 開起ipv6</p>
+<p><img alt="" height="648" src="/images/ipv6.png" width="1152"/></p>
+<p>2.在cmd中輸入'ssh wcm40823246@stud2.cycu.org' 登入後 輸入'ssh-keygen' 在 .ssh 目錄下建立 id_rsa, id_rsa.pub</p>
+<p>3.以sftp登入 輸入cd .ssh進入.ssh 輸入put config上傳檔案</p>
+<p>config內容:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">Host github.com
+User git
+Hostname github.com
+ProxyCommand /usr/bin/ncat --proxy p4.cycu.org:3128 --proxy-type http %h %p</pre>
+<p>4.輸入get id_rsa.pub下載檔案 放到SciTE 編輯器複製內容並新增到github的ssh key中</p>
+<p></p>
+<p>5.以ssh登入 輸入git clone git@github.com:wcm2023/site-40823246.git 下載倉儲</p>
+<p>6.以sftp登入 cd進入倉儲 輸入get waitress_server.py下載檔案</p>
+<p>7.修改內部port代碼 並輸入利用put指令上傳檔案</p>
+<p>8.以ssh登入 cd進入倉儲 輸入hupper3 -m waitress_server.py</p>
+<p>waitress_server.py內容:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">from waitress import serve
+from cmsimde import flaskapp
+serve(flaskapp.app, listen='127.0.0.1:9008', threads=8)</pre>
+<p>9.在瀏覽器輸入 https://stud2.cycu.org:你的port 就可以開啟動態網站</p>
