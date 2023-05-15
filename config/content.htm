@@ -1,5 +1,6 @@
 <h1>About</h1>
-<p>40823246</p><h1>Brython</h1>
+<p>40823246</p>
+<h1>Brython</h1>
 <p>從 1 累加到 100:</p>
 <p><button id="add1to100">1 add to 100</button></p>
 <p>將 iterable 與 iterator <a href="https://home.gamer.com.tw/creationDetail.php?sn=4337438">相關說明</a>, 利用 Brython 與 Ace Editor 整理在這個頁面.</p>
@@ -341,3 +342,13 @@ for i in range(60):
 <p>6.輸入網址查看是否成功</p>
 <p><img alt="" height="984" src="/images/14.png" width="1914"/></p>
 <p></p>
+<h1>在老師那邊建立動態網站(使用ssh協議)</h1>
+<p>1.在網路狀態設定中 開起ipv6</p>
+<p>2.在cmd中輸入'ssh wcm40823246@stud2.cycu.org' 登入後 輸入'ssh-keygen' 在 .ssh 目錄下建立 id_rsa, id_rsa.pub</p>
+<p>3.以sftp登入 輸入cd .ssh進入.ssh 輸入put config上傳檔案</p>
+<p>4.輸入get id_rsa.pub下載檔案 放到SciTE 編輯器複製內容並新增到github的ssh key中</p>
+<p>5.以ssh登入 輸入git clone git@github.com:wcm2023/site-40823246.git 下載倉儲</p>
+<p>6.以sftp登入 cd進入倉儲 輸入get waitress_server.py下載檔案</p>
+<p>7.修改內部port代碼 並輸入利用put指令上傳檔案</p>
+<p>8.以ssh登入 cd進入倉儲 輸入hupper3 -m waitress_server.py</p>
+<p>9.在瀏覽器輸入 https://stud2.cycu.org:你的port 就可以開啟動態網站</p>
